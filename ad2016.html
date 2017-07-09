@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+				<!--Created by Victor for Microsoft security classes.-->
+
+<html>
+   
+   <head>
+         
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">      
+     
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	
+		<title>Windows Server 2016 AD.</title>  	  
+	 
+	</head>
+   
+   <body>
+
+		<div class="container">
+		
+			<br><h1>Installing Active Directory and configuring Group Policies in Windows Server 2016.</h1>
+			<br>
+			<p><h3><strong>Step 1:</strong>&nbsp;&nbsp;&nbsp;
+					Before starting the Windows Server 2016 virtual machine make sure you have at least 4GB RAM. And confirm that the network adapter is configured for NAT. The Windows 10 VM should have 3GB RAM and NAT as well. But do not start the W10 VM yet.
+					&nbsp;&nbsp;&nbsp;
+					
+					
+			</h3></p>
+			
+
+			<p><h3><strong>Step 2:</strong>&nbsp;&nbsp;&nbsp;
+
+					Start the Windows Server 2016 VM, log in as Administrator using Pa$$w0rd and make sure that it has these parameters:
+
+					<ul>
+							<li>IP address = 192.168.1.200		</li>
+							<li>Subnet mask = 255.255.255.0		</li>
+							<li>DNS IP address = 192.168.1.200		</li>
+					</ul>
+
+			</h3></p>
+
+
+			<p><h3><strong>Step 3:</strong>&nbsp;&nbsp;&nbsp;
+
+					Install Active Directory using Server Manager. Since the way to do that is similar to Window Server 2012 you may want to take a look at <a href="http://bit.ly/2tXqTM0" target="_blank"> this link</a> to remember the  steps. The AD domain is <strong>krebner.local</strong>.
+
+			</h3></p>
+
+			<p><h3><strong>Step 4:</strong>&nbsp;&nbsp;&nbsp;
+
+					Start the Windows 10 VM and after configuring the network paramenters (IP = 192.168.1.20, SM = 255.255.255.0 and DNS = 192.168.1.200), join the <strong>krebner.local</strong> domain. Remember you can join the domain by typing <code>sysdm.cpl</code> from the command line and then clicking the <mark>change</mark> button.
+			</h3></p>
+
+			<p><h3><strong>Step 5:</strong>&nbsp;&nbsp;&nbsp;
+
+					Before logging in to the Windows 10 VM, create three organizational units (using Active Directory Users and Computers from the Server Manager) in Active Directory: Marketing, Sales and Accounting. Add these users to the OUs (one on each): Emmanuel Macron, Angela Merkel and Theresa May.
+
+
+			</h3></p>
+
+			<p><h3><strong>Step 6:</strong>&nbsp;&nbsp;&nbsp;
+
+					On the Windows 10 VM log in as the three users you've just created in AD. Remember that this step takes a while. After doing that, log off. We'll use those accounts to test group policies (GPOs).
+
+			</h3></p>
+
+			<p><h3><strong>Step 7:</strong>&nbsp;&nbsp;&nbsp;
+
+					Using the Group Policy Management tool (on Server Manager) create a Starter GPO named MKT_Starter as seen on the pictures below. The two settings are for preventing access to the command prompt and to the registry.
+
+
+			</h3></p>
+
+			<img src="https://datascience2021.github.io/images/gpo0001.jpg">
+			<img src="https://datascience2021.github.io/images/gpo0002.jpg">
+			<img src="https://datascience2021.github.io/images/gpo0003.jpg">
+			<img src="https://datascience2021.github.io/images/gpo0004.jpg">
+			<img src="https://datascience2021.github.io/images/gpo0005.jpg">
+			<img src="https://datascience2021.github.io/images/gpo0006.jpg">
+			<img src="https://datascience2021.github.io/images/gpo0007.jpg">
+			<img src="https://datascience2021.github.io/images/gpo0008.jpg">
+			
+
+
+			<p><h3><strong>Step 8:</strong>&nbsp;&nbsp;&nbsp;
+
+					Now create a new GPO named MKT_GPO using the starter GPO. And link the GPO to the Marketing OU. Close the GPMC (Group Policy Management Console).
+
+
+			</h3></p>
+
+			<img src="https://datascience2021.github.io/images/gpo0009.jpg">
+			<img src="https://datascience2021.github.io/images/gpo0010.jpg">
+
+
+			<p><h3><strong>Step 9:</strong>&nbsp;&nbsp;&nbsp;
+
+					Now on the W2016 VM type <code>gpupdate /force</code> from the command line. To practice the PS (PowerShell), type the <code>Invoke-GPUpdate</code> commandlet too.
+
+
+			</h3></p>
+
+			<p><h3><strong>Step 10:</strong>&nbsp;&nbsp;&nbsp;
+
+					Log in to the W10 VM as Emmanuel Macron (from the Marketing OU) and verify the command line and registry edition restrictions. Do that by trying to access the command prompt and trying to run the <strong>regedit</strong> utility. Did the GPO work? After the verification log off.
+
+
+			</h3></p>
+			
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		
+		<!-- <p><code>				</code></p><br><br>   -->
+      
+   </body>
+</html>
