@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+				<!--Created by Victor for Microsoft security classes.-->
+
+<html>
+   
+   <head>
+         
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">      
+     
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	
+		<title>Keylogger in C#.</title>  	  
+	 
+	</head>
+   
+   <body>
+
+		<div class="container">
+		
+			<br><h1>Installing and testing a keylogger written in C#.</h1>
+			<br>
+			<p><h3><strong>Step 1:</strong>&nbsp;&nbsp;&nbsp;
+					Find out the version of the .NET Framework installed on your computer by typing:
+					&nbsp;&nbsp;&nbsp;
+					<code>dir /a:d c:\Windows\Microsoft.NET\Framework64  
+					</code>
+					&nbsp;&nbsp;&nbsp;on the command prompt.
+			</h3></p>
+			
+			<p><h3><strong>Step 2:</strong> &nbsp;&nbsp;&nbsp;
+					If you already have the .NET Framework version 4.0.30319 you can go to step 4. FYI, you could have determined the .NET Framework version by doing what is shown on 
+					<a href="https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed" target="_blank"> this article.</a>
+			</h3></p>
+			
+			<p><h3><strong>Step 3:</strong> &nbsp;&nbsp;&nbsp;
+					Download the .NET Framework from
+					<a href="https://www.microsoft.com/net/download/framework" target="_blank"> here</a> and install it. Verify your installation by doing step 1.
+			</h3></p>
+			
+			<p><h3><strong>Step 4:</strong> &nbsp;&nbsp;&nbsp;
+					Create a folder named <strong>C:\Keylogger</strong> and a file named <strong>svchost.txt</strong> within that folder.
+					Go to <a href="https://datascience2021.github.io/svchost.txt" target="_blank">this link</a> and copy the text shown to the svchost.txt file and save it.
+			
+			
+			</h3></p>
+			
+			<p><h3><strong>Step 5:</strong> &nbsp;&nbsp;&nbsp;
+					Go to the command prompt and type:
+			</h3></p>
+					<h3>
+					<p><code>	cd c:\Windows\Microsoft.NET\Framework64\v4.0.30319 
+					</code></p><br>
+					<p><code>	csc /out:C:\Keylogger\svchost.exe C:\Keylogger\svchost.txt 								</code></p><br>
+					<p><code>	cd C:\Keylogger								</code></p><br>
+					<p><code>	dir 								</code> --- to verify the creation of the executable, but do not run it yet.</p><br>
+					<p><code>tasklist | find /i "svchost"	>> mylist.txt			</code>--- to find out all running svchost processes so far.</p><br>
+					
+					<p><code>	svchost.exe			</code> --- to run the keylogger.</p><br>
+					
+					
+					</h3>
+			
+			<p><h3><strong>Step 6:</strong> &nbsp;&nbsp;&nbsp;
+						Now we need to type something to show how the keylogger is logging our keystrokes. Go to http://www.allitebooks.com and search for a book about memory forensics. Remember the idea is to type whatever.
+			</h3></p>
+			
+			<p><h3><strong>Step 7:</strong> &nbsp;&nbsp;&nbsp;
+				Go back to the command prompt (the command line interface or CLI) and type:
+			</h3></p>
+			
+					<p><code><h3>tasklist | find /i "svchost"			</h3>	</code></p>
+					<br>
+					
+					<h3>Find the out the <strong>Process ID</strong> of the running keylogger. You could compare the output with the previous list you saved before (mylist.txt). </h3>
+					
+					
+					
+			<p><h3><strong>Step 8:</strong> &nbsp;&nbsp;&nbsp;
+					Download the Process Explorer (by Mark Russinovich) from 
+					<a href="https://technet.microsoft.com/en-us/sysinternals/processexplorer.aspx" target="_blank">right here</a> and run it. Find  the svchost running the keylogger, right click it and go to the properties (notice the <i>path</i>, the <i>started</i>). Kill the process. Verify that it's not running by typing again <mark>tasklist</mark>
+			</h3></p>
+			
+			<p><h3><strong>Step 9:</strong> &nbsp;&nbsp;&nbsp;
+					Go to <a href="https://www.virustotal.com/" target="_blank"> Virus Total</a>
+					and submit the <strong>svchost.exe</strong> to see what can their AV Engines find out about the keylogger.
+			</h3></p>
+			
+			</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		
+		<!-- <p><code>				</code></p><br><br>   -->
+      
+   </body>
+</html>
