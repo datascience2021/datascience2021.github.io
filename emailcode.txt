@@ -1,0 +1,30 @@
+using System;
+using System.Windows.Forms;
+using System.Net.Mail;
+
+class email
+
+{
+
+		static void Main()
+
+		{
+
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("jarashvic@gmail.com");
+                mail.To.Add("slalenisli@throwam.com");
+
+                mail.Subject = "Test Mail";
+                mail.Body = "This is for testing SMTP mail from GMAIL";
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("jarashvic", "chickentamales");
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+                
+		}
+
+}. 
