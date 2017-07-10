@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+   
+   <head>
+   
+      <meta charset = "utf-8">
+      <meta http-equiv = "X-UA-Compatible" content = "IE = edge">
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+	  
+      
+      <title>Scheduling ...</title>
+      
+      
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+      
+		<style>
+		body {background-color:white;}
+		</style>
+      
+   </head>
+   
+   <body>
+
+
+
+
+   
+		<div class="container">
+		
+			<div class="row">
+			
+			<h1>&nbsp;&nbsp;Scheduling tasks on Windows.</h1>
+			
+			
+			
+			<br>
+			 
+			
+			
+			
+			
+			
+			
+			<p><h2>&nbsp;&nbsp;&nbsp;&nbsp;Step 1.&nbsp;&nbsp;</h2>
+			
+			<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Go to the command prompt and type: <code>schtasks.exe</code>. To keep a record of the actual tasks type this: <code>schtasks > tasks.txt</code>. Open the tasks.txt with Notepad, read the tasks and close it. Did you realize how many tasks have been scheduled?</h3>
+			</p>
+			<br>
+			
+			
+			
+			<br>
+			
+			<p><h2>&nbsp;&nbsp;&nbsp;&nbsp;Step 2.&nbsp;&nbsp;</h2>
+			
+			<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Go to the command prompt and write the code shown below.</h3>
+			</p>
+			<br>
+			
+			<p><h3><code>	mkdir C:\Reports				</code></h3></p>
+			
+			<p><h3><code>	for /L %i in (1,1,100) do echo "Where's the money?"  >  C:\Reports\file%i.txt				</code></h3></p>
+			
+			<p><h3><code>	dir C:\Reports				</code></h3></p>  
+			
+			<p><h3><code>	cd %homepath%			</code></h3></p>
+			
+			<p><h3><code>	echo del /s /q C:\Reports\*.* > nomorereports.bat				</code></h3></p>
+			
+			<p><h3><code>	taskschd				</code></h3></p>
+			
+		
+			
+			
+			
+			<br>
+			
+			<p><h2>&nbsp;&nbsp;&nbsp;&nbsp;Step 3.&nbsp;&nbsp;</h2>
+			
+			<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a basic task (that runs the nomoreports.bat batch file) to delete all the files in the C:\Reports folder five minutes from your computer's actual time. The pictures below show how to do it on Windows 10, but it's quite the same on Windows 7. Type <code>taskschd</code> on the command line to get started.</h3>
+			</p>
+			<br>
+			<img src="https://datascience2021.github.io/images/s0901.jpg" class="img img-responsive">
+			
+			<img src="https://datascience2021.github.io/images/s0902.jpg" class="img img-responsive">
+			<img src="https://datascience2021.github.io/images/s0903.jpg" class="img img-responsive">
+			<img src="https://datascience2021.github.io/images/s0904.jpg" class="img img-responsive">
+			<img src="https://datascience2021.github.io/images/s0905.jpg" class="img img-responsive">
+			<img src="https://datascience2021.github.io/images/s0906.jpg" class="img img-responsive">
+			<img src="https://datascience2021.github.io/images/s0907.jpg" class="img img-responsive">
+			
+			<br>
+			
+			
+			<br>
+			
+			<p><h2>&nbsp;&nbsp;&nbsp;&nbsp;Step 4.&nbsp;&nbsp;</h2>
+			
+			<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Repeat Step 1. Is the new task listed?</h3>
+			</p>
+			<br>
+			
+			<p><h2>&nbsp;&nbsp;&nbsp;&nbsp;Step 5.&nbsp;&nbsp;</h2>
+			
+			<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wait until the task is run and verify if the C:\Reports files are gone. Did it work?</h3>
+			</p>
+			<br>
+			
+			
+			<br>
+			
+			<br>
+			
+			
+			<br>
+			<a href="http://www.xkcd.com/" class="btn btn-danger btn-lg" role="button" target="_blank">xkcd</a>
+			
+			
+			
+			 </div>
+	  
+      
+	  
+	  </div>
+      
+   </body>
+</html>
