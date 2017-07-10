@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+   
+   <head>
+   
+      <meta charset = "utf-8">
+      <meta http-equiv = "X-UA-Compatible" content = "IE = edge">
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+	  
+      
+      <title>Email and local group policies.</title>
+      
+      
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+      
+		<style>
+		body {background-color:white;}
+		</style>
+      
+   </head>
+   
+   <body>
+
+
+
+
+   
+		<div class="container">
+		
+			<div class="row">
+			
+			<h1>&nbsp;&nbsp;Creating an email application on C# and using it in a GPO.</h1>
+			
+			<br>
+			
+			<br>
+			
+			<p><h2>&nbsp;&nbsp;&nbsp;&nbsp;Step 1.&nbsp;&nbsp;</h2>
+			
+			<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Go to <a href="http://www.throwawaymail.com/" target="_blank">http://www.throwawaymail.com/</a>
+			and keep the window open. You'll soon get emails on that address. If you want you could use 
+			 https://www.guerrillamail.com/ instead of http://www.throwawaymail.com/.
+			</h3>
+			</p>
+			<br>
+			
+			<p><h2>&nbsp;&nbsp;&nbsp;&nbsp;Step 2.&nbsp;&nbsp;</h2></p>
+			
+			<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a folder named C:\email and a file named <strong>email.txt</strong> within that folder.</h3>
+			
+			
+			
+			
+			
+			<p><h2>&nbsp;&nbsp;&nbsp;&nbsp;Step 3.&nbsp;&nbsp;</h2>
+			<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Go to <a href="https://datascience2021.github.io/emailcode.txt" target="_blank">this link</a>, copy the text and save it to the <strong>email.txt</strong> file.</h3>
+			
+			
+			
+			</p>
+			<br>
+			
+		
+			
+			<p><h2>&nbsp;&nbsp;&nbsp;&nbsp;Step 4.&nbsp;&nbsp;</h2>
+			
+			<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Open the <strong>email.txt</strong> file with Notepad and replace <mark>slalenisli@throwam.com</mark> with the temporary email address you got.</h3>
+			</p>
+			<br>
+			
+			<p><h2>&nbsp;&nbsp;&nbsp;&nbsp;Step 5.&nbsp;&nbsp;</h2></p>
+			
+			<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On the command prompt, type the following commands 
+			to compile the C# code into a .EXE file.
+			<br>
+			<code><h3>cd c:\Windows\Microsoft.NET\Framework64\v4.0.30319  </h3></code><br>										</h3></code>
+			<code><h3>csc /out:C:\email\email.exe C:\email\email.txt </h3></code><br>										</h3></code>
+			<code><h3>C:\email\email.exe										</h3></code>
+			
+			
+			
+		
+			<br>
+			
+			<br>
+			
+			<p><h2>&nbsp;&nbsp;&nbsp;&nbsp;Step 6.&nbsp;&nbsp;</h2>
+			
+			<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Verify that the email was received.</h3>
+			</p>
+			
+			
+			
+			</p>
+			<br>
+			
+			<br>
+			
+			
+			
+			<p><h2>&nbsp;&nbsp;&nbsp;&nbsp;Step 7.&nbsp;&nbsp;</h2>
+			
+			<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Go to <a href="https://www.virustotal.com/" target="_blank"> https://www.virustotal.com/</a> and analyze the email.exe file. What info was found out about the file?</h3>
+			</p>
+			<br>
+			
+				<p><h2>&nbsp;&nbsp;&nbsp;&nbsp;Step 8.&nbsp;&nbsp;</h2>
+			
+			<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Now we'll create a group policy using <strong>gpedit.msc</strong>.
+			The GPO will run a logon script that sends an email every time a user logs in. To do that, first
+			copy the <strong>c:\email\email.exe</strong> file to
+			<strong>C:\Windows\System32\GroupPolicy\User\Scripts\Logon </strong>.
+			The picture below shows how to create the local policy. And don't forget to update the policy by typing
+			<code>gpupdate /force</code> and to verify its existence by typing:
+			<code>gpresult  /R</code></h3>
+			</p>
+			<br>
+			<img src="https://datascience2021.github.io/emailpolicy.jpg" class="img img-responsive">
+			
+			
+			
+			
+			<br>
+			
+			<br>
+			
+			<p><h2>&nbsp;&nbsp;&nbsp;&nbsp;Step 9.&nbsp;&nbsp;</h2>
+			
+			<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Log off and then log back in. Check if your temporary
+			email account got a message.</h3>
+			</p>
+			<br>
+			
+			<br>
+			
+			
+			<br>
+			
+			
+			
+			 </div>
+	  
+      
+	  
+	  </div>
+      
+   </body>
+</html>
+
+
+
+
+
+
+
+
